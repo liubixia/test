@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8"> 
+		<title>博物馆综合管理平台</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="mycanvas.js"></script>
+	</head>
+	<body>
+		<!-- 头部开始 -->
+		<div class="header">
+			<span class="title">博物馆综合管理平台</span>
+			<div class="serch-box">
+				<input class="serch-ipt" id="serch-ipt" type="text" placeholder="搜素当前地图中的区域、文物、监测调控设备" />
+				<img class="sanjiao" id="sanjiao" src="images/sanjiao.png">
+				<img class="serch" src="images/serch.png">
+				<div class="history" id="history">
+					<div class="his-left">
+						<div class="his-leftT">
+							<span class="span1">历史搜索</span><span class="span2">清空</span>
+						</div>
+						<ul class="his-leftB" id="his-leftB">
+							<li>四方羊尊</li>
+							<li>清明上河图</li>
+							<li>宋代红木桌椅</li>
+							<li>汉韵书画展厅</li>
+							<li>网关023</li>
+							<li>中继ZL5605</li>
+							<li>温度传感器</li>
+						</ul>
+					</div>
+					<div class="his-right">
+						<div class="his-rightT">
+							<span class="span1">重点关注</span><span class="span2">清空</span>
+						</div>
+						<ul class="his-rightB" id="his-rightB">
+							<li>四方羊尊</li>
+							<li>清明上河图</li>
+							<li>宋代红木桌椅</li>
+							<li>汉韵书画展厅</li>
+							<li>网关023</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<img class="evelope" src="images/evelope.png">
+			<img class="fankui" src="images/fankui.png">
+			<div class="touxiang-box">
+				<img src="images/touxiang.jpg">
+			</div>
+			<div class="user">
+				<span class="name">月光下的凤尾竹</span>
+				<img class="aaa" id="aaa" src="images/aaa.png">
+				<div class="user-box" id="user-box">
+					<ul>
+						<li class="user-active" style="background-image:url(images/right1.png); background-repeat:no-repeat;background-position:10px 10px;">切换视图</li>
+						<li style="background-image:url(images/right2.png);background-repeat:no-repeat; background-position:12px 4px;">账户设置</li>
+						<li style="background-image:url(images/right3.png);background-repeat:no-repeat;background-position:13px 9px;">系统设置</li>
+						<li style="background-image:url(images/right4.png);background-repeat:no-repeat;background-position:16px 11px;">帮助中心</li>
+						<li style="background-image:url(images/right5.png);background-repeat:no-repeat;background-position:14px 9px;">退出登录</li>
+					</ul>
+				</div>
+				<div class="user-left" id="user-left">
+					<ul>
+						<li class="user-L-active">地图视图</li>
+						<li>数据视图</li>
+						<li>工作视图</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 头部结束 -->
+
+		<!-- 左边侧边栏开始 -->
+		<div class="left">
+			<div class="hide" id="hide">
+				<img src="images/aaa-left.png">
+			</div>
+			<div class="develope" id="develope">
+				<div class="develope-bg" id="develope-bg"></div>
+				<ul>
+					<li><img src="images/left-1.png" style="top:25px;left:18px;"><span style="top:56px;left:6px;">布局规划</span></li>
+					<li><img src="images/left-2.png" style="top:104px;left:10px;"><span style="top:139px;left:6px;">环境监控</span></li>
+					<li><img src="images/left-3.png" style="top:182px;left:16px;"><span style="top:221px;left:6px;">文物管理</span></li>
+					<li><img src="images/left-4.png" style="top:268px;left:20px;"><span  style="top:307px;left:6px;">灯光照明</span></li>
+				</ul>
+				<img class="left-btm" id="left-btm" src="images/固定未选择.png">
+				<div class="left-box" id="left-box">
+					<img src="images/矩形1.png">
+					<a href="#"><span style="left:30px;top:12px;">展览规划</span></a>
+					<a href="#"><span style="left:30px;top:48px;">文物规划</span></a>
+					<a href="#"><span style="left:30px;top:84px;">设备规划</span></a>
+				</div>
+			</div>
+		</div>
+		<!-- 左边侧边栏结束 -->
+
+		<!-- 右边数据曲线图 -->
+		<div class="quxiantu" id="quxiantu">
+			<div class="quxiantuR">
+				<span class="span1">温湿度总览曲线图</span>
+				<span class="span2">湿度</span>
+				<div class="precess">
+					<img src="images/圆角矩形.png">
+				</div>
+				<span class="span3">温度</span>
+			</div>
+			<div class="quxiantu-box" id="quxiantuBox">
+				
+			</div>
+			<script src="build/dist/echarts.js"></script>
+			<script type="text/javascript">
+        //路径配置
+        require.config({
+            paths:{
+                echarts:'build/dist'
+            }
+        });
+
+        //使用
+        require(
+            [
+            // 使用柱状图就加载bar模块，按需加载
+                'echarts',
+                'echarts/chart/line'
+            ],
+            function(ec){
+                var myChart=ec.init(document.getElementById('quxiantuBox'));
+
+                var option={
+                	color:['#535862','rgba(0,0,0,0)'],
+                    grid:{
+                    	x:57,
+                    	y:71,
+                    	x2:34,
+                    	y2:19,
+                    	borderWidth:0
+                    	
+                    },
+                    title:{
+                        show:true,
+                        subtext:'温度(℃)',
+                        x:66,
+                        y:10,
+                        subtextStyle:{
+                            fontfamily:'微软雅黑',
+                            fontSize:14
+                        }
+                    },
+                    toolbox:{
+                        show:true
+                    },
+                    tooltip:{
+                        show:true
+                    },
+               
+                    xAxis:[
+                        {
+                            type:'category',
+                            boundaryGap:false,
+                            axisLine:{
+                            	show:false
+                            },
+                            axisLabel:{
+                            	show:true,
+                            	textStyle:{
+                            		color:'#9fa6ac'
+                            	}
+                            },
+                            splitLine:{
+                                show:true,
+                                lineStyle:{
+                                	color:'#2d3340'
+                                }
+                                
+                            },
+                            data:["11:00","11:10","11:20","11:30","11:40","11:50","12:00"],
+                        }
+                    ],
+                    yAxis:[
+                        {
+                            type:'value',
+                            axisLine:{
+                            	show:false
+                            },
+                            axisLabel:{
+                            	show:true,
+                            	textStyle:{
+                            		color:'#9fa6ac'
+                            	}
+                            },
+                            splitLine:{
+                                show:true,
+                                lineStyle:{
+                                	color:'#252c3b'
+                                }
+                                
+                            }
+                        }
+                    ],
+                    series:[
+                        {
+                            name:"湿度",
+                            type:"line",
+                            symbol:'none',
+                            smooth:true,
+                            data:[
+                            	38,30,
+                            	{
+                            		symbol:'image://images/xiaodian.png',
+                            		value:39,
+                            		symbolSize:5
+                            	},
+                            	26,38,22,38
+                            	],
+                            tooltip:{
+                                show:true,
+                                trigger:'item'
+                            },
+                            itemStyle:{
+                                normal:{
+                                	areaStyle:{type:'default'},
+                                	lineStyle:{color:'rgba(0,0,0,0)'}
+                                }
+                            },                       
+                            markLine:{
+                            	itemStyle:{
+                            		normal:{
+                            			lineStyle:{
+                            				color:'#bf0f12'
+                            			}
+                            		}
+                            	},
+                                data:[
+                                    
+                                    {
+                                        type:'max',name:'最大值'
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            smooth:true,
+                            symbol:'none',
+                            name:"温度",
+                            type:"line",
+                            data:[23,10,23,9,18,
+                            {
+                            	symbol:'image://images/xiaodian1.png',
+                            	value:8,
+                            	symbolSize:5
+                            },
+                            15],
+                            itemStyle:{
+                                normal:{
+                                	areaStyle:{type:'default'},
+                                	lineStyle:{color:'rgba(0,0,0,0)'}
+                                }
+                            },
+                            
+                             markLine:{
+                             	itemStyle:{
+                            		normal:{
+                            			lineStyle:{
+                            				color:'#3aa682'
+                            			}
+                            		}
+                            	},
+                                data:[
+                                    {
+                                        type:'average',name:'平均值'
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            }
+
+        );
+    </script>
+			<!-- 右边区域温湿度均值 -->
+			<div class="ave-box" id="ave-box">
+					<div class="spannnn">
+						<span class="span1">区域温湿度均值</span>
+						<span class="span2">区域</span>
+						<span class="span3">均值</span>
+						<span class="span4">达标率</span>
+					</div>
+				<div class="ave" id="ave">
+					<div class="ullll" id="ullll">
+					  <ul>
+						<li><span class="spanL">兵器展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+						
+						<li><span class="spanL">原著居民生活展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+						<li><span class="spanL">兵器展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+
+						<li><span class="spanL">原著居民生活展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+
+						<li><span class="spanL">兵器展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+
+						<li><span class="spanL">兵器展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+						<li><span class="spanL">原著居民生活展厅</span>
+							<span class="spanC1">25.00℃</span>
+							<span class="spanC2">65.00%</span>
+							<span class	="spanR">89%</span>
+						</li>
+					  </ul>
+					</div>
+				</div>
+
+				<!-- 右边滚动条 -->
+				<div class="scroll" id="scroll">
+					<img class="tiao2" id="tiao2" src="images/tiao2.png">
+					<img class="tiao3" id="tiao3" src="images/tiao3.png">
+					<div class="tiao1" id="tiao1">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 右边快速进入展厅 -->
+		<div class="fastIn-box">
+			<span class="fastIn" id="fastIn">快速进入展厅</span>
+			<ul class="ul1" id="ul1">
+				<li><img src="images/sanjiao-left.png">书画楼一层</li>
+				<li><img src="images/sanjiao-left.png">书画楼二层</li>
+				<li><img src="images/sanjiao-left.png">书画楼三层</li>
+			</ul>
+			<div class="fastleft" id="fastleft">
+				<ul class="ul2" id="ul2">
+					<li class="fastinActive"><a href="#">汉韵书画厅</a></li>
+					<li><a href="#">四川百年建筑厅</a></li>
+					<li><a href="#">梅亭厅</a></li>
+				</ul>
+				<ul class="ul2 ul3" id="ul3">
+					<li><a href="#">汉韵书画厅</a></li>
+					<li><a href="#">四川百年建筑厅</a></li>
+					<li><a href="#">梅亭厅</a></li>
+				</ul>
+				<ul class="ul2 ul4" id="ul4">
+					<li><a href="#">汉韵书画厅</a></li>
+					<li><a href="#">四川百年建筑厅</a></li>
+					<li><a href="#">梅亭厅</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 右边数据曲线图结束 -->
+
+		<!-- 底部开始 -->
+		<div class="footer">
+			<!-- 底部星星评价区 -->
+			<div class="star" style="margin-bottom:5px;">
+				<span style="font-size:16px;">综合评分</span>
+				<img src="images/star.png">
+				<img src="images/star.png">
+				<img src="images/star.png">
+				<img src="images/star-g.png">
+			</div>
+			<div class="star">
+				<span>环境评分</span>
+				<img src="images/s-star.png">
+				<img src="images/s-star.png">
+				<img src="images/s-star.png">
+				<img src="images/s-star.png">
+			</div>
+			<div class="star">
+				<span>设备评分</span>
+				<img src="images/s-star.png">
+				<img src="images/s-star.png">
+				<img src="images/s-star-g.png">
+				<img src="images/s-star-g.png">
+			</div>
+			<div class="star">
+				<span>管理评分</span>
+				<img src="images/s-star.png">
+				<img src="images/s-star.png">
+				<img src="images/s-star.png">
+				<img src="images/s-star-g.png">
+			</div>
+
+			<!-- 底部往下翻页按钮 -->
+			<div class="daaaa-box">
+				<img class="daaaa" id="daaaa" src="images/daaaa.png">
+			</div>
+
+			<!-- 达标率昨日今日对比 -->
+			<span class="span-env">微/小环境达标率</span>
+			<div class="y-t">
+				<span class="yesterday active3" id="yesterday">昨日</span>
+				<span id="today" style='left:50px;'>今日</span>
+			</div>
+			<ul class="foot-ul" id="foot-ul">
+				<li><span class="topValue">温度</span><div><span class="footUl-num"></span><canvas style="background: url(images/white.png) 1.6px 1.45px no-repeat;" width="50px" height="50px"></canvas></div></li>
+				<li><span class="topValue">湿度</span><div><span class="footUl-num"></span><canvas style="background: url(images/white.png) 1.6px 1.45px no-repeat;" width="50px" height="50px"></canvas></div></li>
+				<li><span class="topValue">紫外线</span><div><span class="footUl-num"></span><canvas style="background: url(images/white.png) 1.6px 1.45px no-repeat;" width="50px" height="50px"></canvas></div></li>
+				<li><span class="topValue">光照</span><div><span class="footUl-num"></span><canvas style="background: url(images/white.png) 1.6px 1.45px no-repeat;" width="50px" height="50px"></canvas></div></li>
+				<li><span class="topValue">有机挥发物</span><div><span class="footUl-num"></span><canvas style="background: url(images/white.png) 1.6px 1.45px no-repeat;" width="50px" height="50px"></canvas></div></li>
+				<li><span class="topValue">二氧化碳</span><div><span class="footUl-num"></span><canvas style="background: url(images/white.png) 1.6px 1.45px no-repeat;" width="50px" height="50px"></canvas></div></li>
+			</ul>
+		</div>
+		<!-- 底部结束 -->
+		<script type="text/javascript" src="script.js"></script>
+
+	</body>
+</html>

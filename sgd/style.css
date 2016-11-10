@@ -1,0 +1,712 @@
+/* 公共设置开始 */
+*{
+	padding: 0;
+	margin:0;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+li{list-style: none;}
+a{
+	text-decoration: none;
+}
+/* 公共设置结束 */
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+/* 整个页面的背景，自适应 */
+body{
+	background:url(images/背景.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+/* 头部开始 */
+.header{
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background:url(images/logo.png) no-repeat 30px 6px  #5a9e6d;
+	z-index: 1;
+}
+.title{
+	font-family: "黑体 Regular";
+	font-size: 30px;
+	position: absolute;
+	display: block;
+	left: 114px;
+	line-height: 80px;
+	height: 80px;
+	width: 282px;
+	color: #fff;
+	cursor: pointer;
+}
+/* 搜索框开始 */
+.serch-box{
+	height: 37px;
+	width: 320px;
+	position: absolute;
+	top: 24px;
+	left: 46.875%;
+}
+
+/* 搜索输入框 */
+.serch-ipt{
+	height: 37px;
+	width: 308px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 20px;
+	border: none;
+	padding-left: 12px;
+	color: #9fa6ac;
+	font-size: 12px;
+	font-weight: bold;
+}
+.serch-box .sanjiao{
+	position: absolute;
+	left: 266px;
+	top: 15px;
+	cursor: pointer;
+}
+.serch-box .serch{
+	position: absolute;
+	top: 7px;
+	left: 288px;
+	cursor: pointer;
+}
+
+/* 历史搜索以及重点关注 */
+.serch-box .history{
+	background: #fff;
+	position: absolute;
+	width: 390px;
+	top: 38px;
+	left: 12px;
+	cursor: pointer;
+	padding-bottom: 28px;
+	display: none;
+}
+
+/* 搜索框分左右两边 */
+.serch-box .his-left{
+	width: 194px;
+	border-right: 1px solid #cfd2d5;
+	float: left;
+}
+.serch-box .hisActive{
+	background: #e8eef7;
+}
+.serch-box .his-leftT{
+	position: relative;
+	width: 182px;
+	height: 37px;
+	top: 0;
+	left: 7px;
+	border-bottom: 1px solid #cfd2d5;
+}
+.serch-box .his-leftB{
+	position: relative;
+	top: 7px;
+	left: 0px;
+
+}
+/* 搜索框内的li统一设置设置 */
+.serch-box li{
+	height: 28px;
+	color: #647481;
+	font-size: 12px;
+	line-height: 28px;
+	padding-left: 16px;
+}
+/* 历史搜索、重点关注几个字的设置 */
+.serch-box .span1{
+	position: absolute;
+	height: 37px;
+	color: #386f5a;
+	top: 0;
+	left: 7px;
+	line-height: 37px;
+}
+/* 清空是设置 */
+.serch-box .span2{
+	position: absolute;
+	height: 30px;
+	color: #647481;
+	top: 7px;
+	left: 146px;
+	font-size: 12px;
+	line-height: 30px;
+}
+.serch-box .his-right{
+	float: left;
+	position: relative;
+	width: 194px;
+	top: 0;
+	left: 0px;
+}
+.serch-box .his-rightT{
+	width: 182px;
+	height: 37px;
+	top: 0;
+	left: 6px;
+	border-bottom: 1px solid #cfd2d5;
+}
+.serch-box .his-rightB{
+	position: relative;
+	top: 7px;
+	left: 0px;
+}
+
+/* 邮件图形的设置 */
+.header .evelope{
+	position: absolute;
+	left: 74.2%;
+	top: 31px;
+}
+/* 反馈图形的设置 */
+.header .fankui{
+	position: absolute;
+	left: 77.578%;
+	top: 27px;
+}
+
+/* 头像的设置 */
+.header .touxiang-box{
+	width: 51px;
+	height: 51px;
+	border-radius: 50%;
+	position: absolute;
+	top:10px; 
+	left:83.8%;
+	overflow: hidden;
+}
+.header .touxiang-box img{
+	width: 51px;
+	height: 51px;
+}
+
+/* 用户名框开始 */
+.header .user{
+	position: absolute;
+	left: 88.28%;
+	top: 25px;
+}
+.header .name{
+	display: inline-block;
+	color: #bce8b7;
+}
+
+/* 用户名处的下拉框 */
+.header .aaa{
+	position: absolute;
+	top: 7px;
+	left: 105px;
+	cursor: pointer;
+}
+
+/* 点击下拉框的设置导航 */
+.header .user .user-box{
+	position: absolute;
+	left: -4px;
+	top: 25px;
+	z-index: 2;
+	height: 0;
+	overflow: hidden;
+}
+.header .user .user-box ul li{
+	width: 101px;
+	height: 29px;
+	padding-left: 34px;
+	color: #647481;
+	line-height: 29px; 
+	background-color: #fff;
+	cursor: pointer;
+}
+
+/* 点击设置导航后出现的方框 */
+.header .user .user-left{
+	display: none;
+	position: absolute;
+	left: -90px;
+	top: 25px;
+}
+.header .user .user-left ul li{
+	width: 72px;
+	height: 29px;
+	padding-left: 13px;
+	background: #ffffff;
+	color: #647481;
+	line-height: 29px;
+	cursor: pointer;
+}
+.header .user .user-box .user-active{
+	background-color: #bce8b7;
+}
+.header .user .user-left .user-L-active{
+	background-color: #bce8b7;
+}
+
+/* 左边隐藏条 */
+.left .hide{
+	width: 13px;
+	height: 111px;
+	background:#5a9e6d;
+	position: absolute;
+	left: 0;
+	top: 38.25%;
+	border-bottom-right-radius:6px;
+	border-top-right-radius: 6px;
+	cursor: pointer;
+}
+.left .hide img{
+	position: absolute;
+	top: 44px;
+	left: 1px;
+}
+
+/* 左边展开后的布局开始 */
+.left .develope{
+	position: absolute;
+	width: 64px;
+	height: 100%;
+	left: -65px;
+	top: 0;
+	background:#fff;
+	border-right: 1px solid #c2c6ca;
+}
+.left .develope .develope-bg{
+	position: absolute;
+	width: 64px;
+	height: 82px;
+	left: 0px;
+	top: 80px;
+	background: #bce8b7;
+}
+.left .develope ul{
+	position: absolute;
+	left: 0;
+	top: 80px;
+}
+.left .develope ul li{
+	width: 64px;
+	height: 82px;
+	border-bottom: 1px solid #9fa6ac;
+	color: #647481;
+	cursor: pointer;
+}
+.left .develope ul li span{
+	font-size: 12px;
+	position: absolute;
+}
+.left .develope ul li img{
+	position: absolute;
+}
+.left .develope .active1{
+	color: #5a9e6d;
+}
+.left .left-btm{
+	position: absolute;
+	left: 7px;
+	bottom: 144px;
+	cursor: pointer;
+}
+.left .left-box{
+	position: absolute;
+	left: 67px;
+	top: 122px;
+	display: none;
+}
+.left .left-box span{
+	display: block;
+	position: absolute;
+	color: #386f5a;
+}
+/* 左边结束 */
+
+/* 右边曲线图开始 */
+.quxiantu{
+	position: absolute;
+	top: 80px;
+	right: 0; 
+}
+.quxiantuR{
+	position: absolute;
+	top: 0;
+	right: 0;
+	
+}
+.quxiantu-box{
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 417px;
+	height: 182px;
+	background: url(images/quxiantu1.png) no-repeat;
+	z-index: -1;
+}
+.quxiantu .span1{
+	display: block;
+	width: 128px;
+	height: 31px;
+	color:#5a9e6d;
+	font-size: 16px;
+	line-height: 31px;
+	position: absolute;
+	top: 0;
+	right: 4px;
+}
+.quxiantu .span2,.quxiantu .span3{
+	display: block;
+	width: 25px;
+	height: 12px;
+	color:#9fa6ac;
+	font-size: 12px;
+	position: absolute;
+	top: 31px;
+}
+.quxiantu .span2{
+	right: 107px;
+}
+.quxiantu .span3{
+	right: 7px;
+}
+.quxiantu .precess{
+	position: absolute;
+	top: 32px;
+	right: 35px;
+	width: 65px;
+	height: 13px;
+	background: url(images/长圆角矩形.png) no-repeat 0 5px;
+}
+.quxiantu .precess img{
+	position: absolute;
+	left: 10px;
+}
+/* 区域温湿度均值开始 */
+.quxiantu .ave-box{
+	position: absolute;
+	top: 182px;
+	right: 0px;
+	width: 318px;
+	height: 190px;
+}
+.quxiantu .ave{
+	position: absolute;
+	top: 82px;
+	width: 318px;
+	height: 108px;
+	overflow: hidden;
+}
+.quxiantu .ave-box .spannnn{
+	position: absolute;
+	top: 0;
+	background: url(images/矩形2.png) no-repeat;
+	background-size: 100% 100%;
+	width: 318px;
+	height: 75px;
+	padding-bottom: 7px;
+}
+.quxiantu .ave .ullll{
+	position: absolute;
+	top: 0px;
+	background: url(images/矩形2.png) no-repeat;
+	background-size: 100% 100%;
+	width: 318px;
+	padding-bottom: 10px;
+}
+.quxiantu .spannnn .span1{
+	position: relative;
+	top: 8px;
+	left: 26px;
+	display: block;
+	width: 112px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 16px;
+	color: #5a9e6d;
+}
+.quxiantu .spannnn .span2{
+	position: relative;
+	display: block;
+	font-size: 14px;
+	color: #5a9e6d;
+	line-height: 30px;
+	height: 30px;
+	width: 28px;
+	left: 27px;
+	top: 19px;
+}
+.quxiantu .spannnn .span3{
+	position: absolute;
+	display: block;
+	font-size: 14px;
+	color: #5a9e6d;
+	line-height: 30px;
+	height: 30px;
+	width: 28px;
+	left: 148px;
+	top: 50px;
+}
+.quxiantu .spannnn .span4{
+	position: absolute;
+	display: block;
+	font-size: 14px;
+	color: #5a9e6d;
+	line-height: 30px;
+	height: 30px;
+	width: 42px;
+	left: 230px;
+	top: 50px;
+}
+.quxiantu .ave ul{
+	position: relative;
+	width: 262px;
+	left: 27px;
+	top: 0px;
+}
+.quxiantu .ave ul li{
+	width: 262px;
+	height: 34px;
+	border-bottom: 1px solid #55565d;
+	color: #5a9e6d;
+	position: relative;
+}
+.quxiantu .ave .spanL{
+	display: inline-block;
+	position: relative;
+	font-size: 12px;
+	top: 8px;
+	left: 1px;
+}
+.quxiantu .ave .spanC1{
+	font-size: 12px;
+	display: inline-block;
+	position: absolute;
+	left: 121px;
+	top: 2px;
+}
+.quxiantu .ave .spanC2{
+	font-size: 12px;
+	display: inline-block;
+	position: absolute;
+	top: 17px;
+	left: 121px;
+}
+.quxiantu .ave .spanR{
+	font-size: 12px;
+	display: inline-block;
+	position: absolute;
+	left: 204px;
+	top: 12px;
+}
+/* 区域温湿度均值结束 */
+
+/* 均值处的滚动条 */
+.quxiantu .scroll{
+	height: 190px;
+	width: 15px;
+	background:url(images/tiao.png) no-repeat;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.quxiantu .scroll .tiao2{
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+.quxiantu .scroll .tiao3{
+	position: absolute;
+	top: 175px;
+	right: 0;
+	cursor: pointer;
+}
+.quxiantu .scroll .tiao1{
+	background: url(images/tiao1.png) no-repeat;
+	position: absolute;
+	width: 15px;
+	height: 43px;
+	top: 15px;
+	right: 0;
+	cursor:pointer;
+}
+/* 快速进入 */
+.fastIn{
+	color: #fff;
+	height: 40px;
+	width: 114px;
+	font-size: 16px;
+	padding-left: 8px;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	top: 452px;
+	right: 0;
+	background:#5a9e6d;
+	cursor: pointer;
+}
+.fastIn-box .ul2 .fastinActive{
+	background: #bce8b7;
+}
+.fastIn-box .ul1{
+	display: none;
+	position: absolute;
+	top: 492px;
+	right: 0;
+}
+.fastIn-box .ul1 li{
+	width: 115px;
+	height: 30px;
+	padding-left: 7px;
+	text-align: center;
+	line-height: 30px;
+	color: #647481;
+	background: #fff;
+	cursor: pointer;
+}
+.fastIn-box img{
+	position: relative;
+	left: -17px;
+}
+.fastIn-box .ul1 .active2{
+	color: #5a9e6d;
+	background: #bce8b7;
+}
+.fastIn-box .ul2{
+	display: none;
+	position: absolute;
+	top: 437px;
+	right: 123px;
+}
+.fastIn-box .ul3{
+	top: 467px;
+}
+.fastIn-box .ul4{
+	top: 497px;
+}
+.fastIn-box .ul2 li{
+	width: 110px;
+	height: 30px;
+	padding-left: 19px;
+	line-height: 30px;
+	color: #647481;
+	background: #fff;
+}
+.fastIn-box .ul2 li a{
+	color: #647481;
+}
+/* 快速进入结束 */
+
+/* 底部开始 */
+.footer{
+	width: 100%;
+	height: 127px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: url(images/foot.png) no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+/* 底部的星星评价区 */
+.footer .star{
+	position: relative;
+	top: 25px;
+	left: 22px;
+	color:#bce8b7;
+}
+.footer .star span{
+	font-size: 12px;
+	display: inline-block;
+	position: relative;
+	top: -3px;
+}
+.footer .span-env{
+	color: #386f5a;
+	position: absolute;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	top: 35px;
+	left: 51.328%;
+}
+
+/* 翻页按钮 */
+.footer .daaaa-box{
+	position: absolute;
+	top: 35px;
+	left: 36.7%;
+	width: 103px;
+	height: 76px;
+}
+.footer .daaaa{
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	cursor: pointer;
+}
+
+/* 昨日今日对比 */
+.footer .y-t{
+	position: absolute;
+	top: 82px;
+	left: 51.328%;
+}
+.footer .y-t span{
+	position: absolute;
+	display: inline-block;
+	position: absolute;
+	height: 25px;
+	width: 50px;
+	line-height: 25px;
+	text-align: center;
+	top: 0;
+	background: #616161;
+	color: #333232;
+	cursor: pointer;
+}
+.footer .y-t .active3{
+	background: #36b087;
+	color: #fff;
+}
+/* 环境变量 */
+.footer .foot-ul{
+	position: absolute;
+	bottom: 10px;
+	left: 63%;
+}
+.footer .foot-ul li{
+	width: 71px;
+	margin: 0 6px;
+	float: left;
+}
+.footer .foot-ul li span{
+	position: relative;
+	top: -4px;
+	left: -12px;
+	display: inline-block;
+	text-align: center;
+	width: 71px;  
+	color: #386f5a;
+}
+.footer .foot-ul div{
+	position: relative;
+	top: -26px;
+	width: 50px;
+	height: 50px;
+}
+.footer .foot-ul .footUl-num{
+	line-height: 28px;
+	text-align: center;
+	color: #647481;
+	font-size: 12px;
+	position: relative;
+	top: 35px;
+	left: -12px;
+}
+/* 环境变量结束 */
